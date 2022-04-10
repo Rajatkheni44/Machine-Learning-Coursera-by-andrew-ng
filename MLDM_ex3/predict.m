@@ -21,13 +21,21 @@ p = zeros(size(X, 1), 1);
 %       can use max(A, [], 2) to obtain the max for each row.
 %
 
+X = [ones(m, 1) X];   % 5000 x 401 == no_of_input_images x no_of_features % Adding 1 in X 
+  %No. of rows = no. of input images
+  %No. of Column = No. of features in each image
+  
+hid = X * (Theta1');    % 5000 x 25
+hid = sigmoid(hid);     % 5000 x 25
 
+in_out = [ones(size(hid,1),1) hid];    % 5000 x 26 %in_out = input of output layer 
+pr = in_out * (Theta2');    % 5000 x 10
+pr = sigmoid(pr);           % 5000 x 10
 
-
-
-
-
-
+[prob, p] = max(pr, [], 2);
+%returns maximum element in each row  == max. probability and its index for each input image
+  %p: predicted output (index)
+  %prob: probability of predicted output
 
 % =========================================================================
 
