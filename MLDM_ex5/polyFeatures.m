@@ -15,8 +15,10 @@ X_poly = zeros(numel(X), p);
 %
 % 
 
-
-
+for i = 1:p
+  New_feature = X.^i;
+  X_poly(:, i) = New_feature;
+end
 
 
 

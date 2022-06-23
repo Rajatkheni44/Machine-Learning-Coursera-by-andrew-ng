@@ -164,7 +164,9 @@ pause;
 %  lambda to see how the fit and learning curve change.
 %
 
-lambda = 0;
+%for i = 0:100,
+  lambda = 0;
+%end
 [theta] = trainLinearReg(X_poly, y, lambda);
 
 % Plot training data and fit
